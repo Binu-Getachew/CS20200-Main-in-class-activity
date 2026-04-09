@@ -2,9 +2,13 @@
 
 /// Modify the function `gcd` in such a way that the function computes the
 /// greatest common divisor of two 32-bit integers.
-let rec gcd a b =
-    if b = 0 then a
-    else gcd b (a % b)
+let gcd a b =
+  let minimum=min a b
+  let mutable factor=1
+  for i in 1..minimum do
+    if a%i=0 && b%i=0 then
+        factor<-i
+  factor    
 
-gcd 360 210
-|> printfn "%d"
+let result3=gcd 4 8
+printfn "The GCD of %d and %d is %d" 4 8 result3
